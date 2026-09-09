@@ -3,25 +3,31 @@
   "examples_with_generated_positive": 3897,
   "preference_pairs": 2448,
   "confidence_tier_all_candidate_examples": {
-    "medium_single_scalar": 3678,
+    "medium_text_scalar": 1242,
     "high": 2143,
+    "low_numeric_scalar": 2436,
     "unverifiable_gold": 4
   },
   "confidence_tier_examples_with_positive": {
-    "medium_single_scalar": 2630,
+    "medium_text_scalar": 928,
+    "low_numeric_scalar": 1702,
     "high": 1267
   },
   "confidence_tier_preference_pairs": {
-    "medium_single_scalar": 1607,
+    "low_numeric_scalar": 1060,
+    "medium_text_scalar": 547,
     "high": 841
   },
   "positive_candidates_by_tier": {
-    "medium_single_scalar": 4930,
+    "medium_text_scalar": 1722,
+    "low_numeric_scalar": 3208,
     "high": 2183
   },
   "empty_result_positive_examples": 0,
   "high_confidence_pairs": 841,
   "high_confidence_pair_fraction": 0.34354575163398693,
+  "medium_or_better_pairs": 1388,
+  "medium_or_better_pair_fraction": 0.5669934640522876,
   "low_confidence_pair_fraction": 0.6564542483660131,
   "difficulty_paired": {
     "unlabeled": 2448

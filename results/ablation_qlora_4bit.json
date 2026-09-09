@@ -1,0 +1,54 @@
+{
+  "config": {
+    "model_path": "models\\Qwen2.5-Coder-1.5B-Instruct",
+    "max_seq_length": 6144,
+    "max_steps": 200,
+    "batch_size": 1,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 0.0002,
+    "warmup_ratio": 0.03,
+    "max_grad_norm": 1.0,
+    "lora_rank": 16,
+    "lora_alpha": 32,
+    "lora_dropout": 0.05,
+    "gradient_checkpointing": true,
+    "seed": 42,
+    "load_in_4bit": true
+  },
+  "training_mode": "qlora_nf4_4bit",
+  "base_weight_mib": 1515.443359375,
+  "prompt_config": {
+    "max_tables": 6,
+    "max_description_chars": 96
+  },
+  "environment": {
+    "python": "3.11.16",
+    "torch": "2.11.0+cu128",
+    "cuda_runtime": "12.8",
+    "gpu": "NVIDIA GeForce RTX 5070 Ti",
+    "bitsandbytes": "0.50.2",
+    "transformers": "4.57.6",
+    "peft": "0.20.0"
+  },
+  "examples_tokenized": 1600,
+  "tokenization_seconds": 8.23476059967652,
+  "sequence_tokens": {
+    "min": 386,
+    "median": 1467.0,
+    "p95": 3861.0,
+    "max": 5631
+  },
+  "optimizer_steps": 200,
+  "tokens_seen": 2766151,
+  "training_seconds": 1267.457660799846,
+  "tokens_per_second": 2182.4405544674237,
+  "step_seconds": {
+    "median": 6.071475049946457,
+    "p95": 9.559035200159997
+  },
+  "peak_vram_mib": 13077.60205078125,
+  "peak_reserved_vram_mib": 28726.0,
+  "trainable_parameters": 18464768,
+  "total_parameters_loaded": 1562179072,
+  "trainable_fraction": 0.011819879251333359
+}
