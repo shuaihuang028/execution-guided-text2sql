@@ -1,0 +1,23 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+.cache/
+build/
+dist/
+*.egg-info/
+data/raw/
+checkpoints/
+models/
+outputs/
+wandb/
+
+# Training artifacts: adapters and checkpoints are large and regenerable
+artifacts/
+
+# Large regenerable intermediates; summaries in results/*.json are tracked
+results/train_candidates.jsonl
+results/train_candidate_labels.jsonl
+results/*.log
+data/processed/preference_pairs.jsonl

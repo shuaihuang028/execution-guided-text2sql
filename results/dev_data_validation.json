@@ -1,0 +1,19 @@
+{
+  "examples": 1534,
+  "database_ids": 11,
+  "resolved_databases": 11,
+  "missing_databases": {},
+  "tables": {
+    "total": 75,
+    "min_per_database": 3,
+    "max_per_database": 13
+  },
+  "gold_smoke_test": {
+    "per_database": 1,
+    "executed": 11,
+    "status_counts": {
+      "success": 11
+    },
+    "failures": []
+  }
+}

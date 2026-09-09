@@ -1,0 +1,13 @@
+{
+  "model": "artifacts\\sft_qlora_final\\final_adapter",
+  "examples_generated": 1,
+  "generated_tokens": 116,
+  "elapsed_seconds": 6.680795900058001,
+  "generated_tokens_per_second": 17.363200692748734,
+  "peak_input_tokens": 1586,
+  "peak_vram_mib": 3362.20703125,
+  "output_examples_total": 1,
+  "output_unique_ids": 1,
+  "output_duplicate_ids": 0,
+  "output_generated_tokens_total": 116
+}

@@ -1,0 +1,154 @@
+{
+  "total": 1534,
+  "transitions": {
+    "incorrect_to_incorrect": 985,
+    "correct_to_correct": 232,
+    "incorrect_to_correct": 241,
+    "correct_to_incorrect": 76
+  },
+  "post_sft_categories": {
+    "correct": 473,
+    "missing_column": 397,
+    "wrong_row_set": 307,
+    "wrong_values": 230,
+    "wrong_projection": 51,
+    "missing_table": 34,
+    "syntax_error": 30,
+    "aggregation_error": 3,
+    "gold_execution_error": 3,
+    "too_many_rows": 2,
+    "timeout": 2,
+    "ambiguous_column": 1,
+    "unsupported_function": 1
+  },
+  "by_difficulty": {
+    "challenging": {
+      "total": 231,
+      "execution_correct": 27,
+      "categories": {
+        "missing_column": 98,
+        "wrong_row_set": 39,
+        "wrong_values": 33,
+        "correct": 27,
+        "syntax_error": 15,
+        "wrong_projection": 15,
+        "missing_table": 2,
+        "ambiguous_column": 1,
+        "gold_execution_error": 1
+      }
+    },
+    "moderate": {
+      "total": 443,
+      "execution_correct": 93,
+      "categories": {
+        "missing_column": 134,
+        "correct": 93,
+        "wrong_row_set": 88,
+        "wrong_values": 87,
+        "wrong_projection": 18,
+        "missing_table": 10,
+        "syntax_error": 9,
+        "aggregation_error": 2,
+        "gold_execution_error": 1,
+        "timeout": 1
+      }
+    },
+    "simple": {
+      "total": 860,
+      "execution_correct": 353,
+      "categories": {
+        "correct": 353,
+        "wrong_row_set": 180,
+        "missing_column": 165,
+        "wrong_values": 110,
+        "missing_table": 22,
+        "wrong_projection": 18,
+        "syntax_error": 6,
+        "too_many_rows": 2,
+        "timeout": 1,
+        "unsupported_function": 1,
+        "gold_execution_error": 1,
+        "aggregation_error": 1
+      }
+    }
+  },
+  "by_database": [
+    {
+      "db_id": "codebase_community",
+      "total": 186,
+      "pre_correct": 60,
+      "post_correct": 102,
+      "correct_delta": 42
+    },
+    {
+      "db_id": "student_club",
+      "total": 158,
+      "pre_correct": 47,
+      "post_correct": 73,
+      "correct_delta": 26
+    },
+    {
+      "db_id": "superhero",
+      "total": 129,
+      "pre_correct": 40,
+      "post_correct": 66,
+      "correct_delta": 26
+    },
+    {
+      "db_id": "thrombosis_prediction",
+      "total": 163,
+      "pre_correct": 11,
+      "post_correct": 28,
+      "correct_delta": 17
+    },
+    {
+      "db_id": "european_football_2",
+      "total": 129,
+      "pre_correct": 30,
+      "post_correct": 46,
+      "correct_delta": 16
+    },
+    {
+      "db_id": "formula_1",
+      "total": 174,
+      "pre_correct": 31,
+      "post_correct": 47,
+      "correct_delta": 16
+    },
+    {
+      "db_id": "card_games",
+      "total": 191,
+      "pre_correct": 45,
+      "post_correct": 56,
+      "correct_delta": 11
+    },
+    {
+      "db_id": "california_schools",
+      "total": 89,
+      "pre_correct": 2,
+      "post_correct": 6,
+      "correct_delta": 4
+    },
+    {
+      "db_id": "toxicology",
+      "total": 145,
+      "pre_correct": 26,
+      "post_correct": 30,
+      "correct_delta": 4
+    },
+    {
+      "db_id": "financial",
+      "total": 106,
+      "pre_correct": 4,
+      "post_correct": 7,
+      "correct_delta": 3
+    },
+    {
+      "db_id": "debit_card_specializing",
+      "total": 64,
+      "pre_correct": 12,
+      "post_correct": 12,
+      "correct_delta": 0
+    }
+  ]
+}

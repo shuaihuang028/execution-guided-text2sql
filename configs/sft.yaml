@@ -1,0 +1,32 @@
+model_path: models/Qwen2.5-Coder-1.5B-Instruct
+seed: 42
+max_seq_length: 6144
+num_train_epochs: 1.0
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 8
+learning_rate: 2.0e-4
+warmup_ratio: 0.03
+max_grad_norm: 1.0
+gradient_checkpointing: true
+save_steps: 100
+save_total_limit: 2
+validation_limit: 128
+prompt:
+  max_tables: 6
+  max_description_chars: 96
+qlora:
+  quant_type: nf4
+  double_quant: true
+  compute_dtype: bfloat16
+lora:
+  rank: 16
+  alpha: 32
+  dropout: 0.05
+  target_modules:
+    - q_proj
+    - k_proj
+    - v_proj
+    - o_proj
+    - gate_proj
+    - up_proj
+    - down_proj

@@ -1,0 +1,11 @@
+seed: 42
+data_path: data/raw/train.jsonl
+database_root: data/raw/train_databases
+model_name: Qwen/Qwen2.5-Coder-1.5B-Instruct
+validation_fraction: 0.10
+include_evidence: true
+include_descriptions: true
+max_description_chars: 128
+schema_pruning:
+  enabled: false
+  max_tables: 8

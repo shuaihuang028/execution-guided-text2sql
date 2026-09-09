@@ -1,0 +1,80 @@
+{
+  "completion_tokens": {
+    "max": 294,
+    "p50": 49,
+    "p90": 79,
+    "p95": 90,
+    "p99": 119
+  },
+  "databases": 69,
+  "examples": 6601,
+  "longest_sequences": [
+    {
+      "db_id": "hockey",
+      "example_id": "hockey:4947",
+      "tokens": 7536
+    },
+    {
+      "db_id": "hockey",
+      "example_id": "hockey:3118",
+      "tokens": 7504
+    },
+    {
+      "db_id": "hockey",
+      "example_id": "hockey:3071",
+      "tokens": 7497
+    },
+    {
+      "db_id": "hockey",
+      "example_id": "hockey:3034",
+      "tokens": 7493
+    },
+    {
+      "db_id": "hockey",
+      "example_id": "hockey:5700",
+      "tokens": 7492
+    },
+    {
+      "db_id": "hockey",
+      "example_id": "hockey:4925",
+      "tokens": 7490
+    },
+    {
+      "db_id": "hockey",
+      "example_id": "hockey:3117",
+      "tokens": 7490
+    },
+    {
+      "db_id": "hockey",
+      "example_id": "hockey:3085",
+      "tokens": 7490
+    },
+    {
+      "db_id": "hockey",
+      "example_id": "hockey:3051",
+      "tokens": 7484
+    },
+    {
+      "db_id": "hockey",
+      "example_id": "hockey:4948",
+      "tokens": 7482
+    }
+  ],
+  "max_description_chars": 128,
+  "max_tables": 8,
+  "model": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+  "prompt_tokens": {
+    "max": 7444,
+    "p50": 1708,
+    "p90": 4443,
+    "p95": 5191,
+    "p99": 7386
+  },
+  "training_sequence_tokens": {
+    "max": 7536,
+    "p50": 1753,
+    "p90": 4507,
+    "p95": 5226,
+    "p99": 7439
+  }
+}

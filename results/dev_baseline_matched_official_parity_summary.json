@@ -1,0 +1,21 @@
+{
+  "total": 1534,
+  "local_correct": 308,
+  "local_execution_accuracy": 0.20078226857887874,
+  "official_semantics_correct": 347,
+  "official_semantics_execution_accuracy": 0.22620599739243807,
+  "accuracy_delta": 0.025423728813559324,
+  "agreement_rate": 0.9719687092568449,
+  "transitions": {
+    "local_0_official_0": 1185,
+    "local_1_official_1": 306,
+    "local_1_official_0": 2,
+    "local_0_official_1": 41
+  },
+  "prediction_status_counts": {
+    "error": 816,
+    "success": 718
+  },
+  "official_comparison_contract": "set(predicted_rows) == set(gold_rows)",
+  "execution_note": "Official row-set semantics reproduced inside this repository's read-only, row-limited sandbox; process-level timeout behavior is not byte-for-byte identical."
+}

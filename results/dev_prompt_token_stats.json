@@ -1,0 +1,80 @@
+{
+  "completion_tokens": {
+    "max": 1026,
+    "p50": 51,
+    "p90": 98,
+    "p95": 472,
+    "p99": 713
+  },
+  "databases": 11,
+  "examples": 1534,
+  "longest_sequences": [
+    {
+      "db_id": "european_football_2",
+      "example_id": "european_football_2:1128",
+      "tokens": 2759
+    },
+    {
+      "db_id": "european_football_2",
+      "example_id": "european_football_2:1041",
+      "tokens": 2741
+    },
+    {
+      "db_id": "european_football_2",
+      "example_id": "european_football_2:1076",
+      "tokens": 2726
+    },
+    {
+      "db_id": "european_football_2",
+      "example_id": "european_football_2:1115",
+      "tokens": 2720
+    },
+    {
+      "db_id": "european_football_2",
+      "example_id": "european_football_2:1131",
+      "tokens": 2717
+    },
+    {
+      "db_id": "european_football_2",
+      "example_id": "european_football_2:1114",
+      "tokens": 2695
+    },
+    {
+      "db_id": "european_football_2",
+      "example_id": "european_football_2:1037",
+      "tokens": 2689
+    },
+    {
+      "db_id": "european_football_2",
+      "example_id": "european_football_2:1126",
+      "tokens": 2680
+    },
+    {
+      "db_id": "european_football_2",
+      "example_id": "european_football_2:1094",
+      "tokens": 2676
+    },
+    {
+      "db_id": "european_football_2",
+      "example_id": "european_football_2:1042",
+      "tokens": 2671
+    }
+  ],
+  "max_description_chars": 128,
+  "max_tables": 8,
+  "model": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+  "prompt_tokens": {
+    "max": 2594,
+    "p50": 929,
+    "p90": 1810,
+    "p95": 2510,
+    "p99": 2549
+  },
+  "training_sequence_tokens": {
+    "max": 2759,
+    "p50": 999,
+    "p90": 1943,
+    "p95": 2561,
+    "p99": 2645
+  }
+}

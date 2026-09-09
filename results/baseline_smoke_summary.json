@@ -1,0 +1,12 @@
+{
+  "total": 2,
+  "scored": 2,
+  "execution_correct": 1,
+  "executable": 2,
+  "execution_accuracy": 0.5,
+  "executable_rate": 1.0,
+  "prediction_status_counts": {
+    "success": 2
+  },
+  "gold_error_count": 0
+}

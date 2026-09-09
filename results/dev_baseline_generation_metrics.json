@@ -1,0 +1,9 @@
+{
+  "model": "models\\Qwen2.5-Coder-1.5B-Instruct",
+  "examples_generated": 526,
+  "generated_tokens": 27780,
+  "elapsed_seconds": 156.18006009981036,
+  "generated_tokens_per_second": 177.87161806857142,
+  "peak_input_tokens": 3200,
+  "peak_vram_mib": 7768.77001953125
+}

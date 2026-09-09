@@ -1,0 +1,23 @@
+{
+  "candidate_examples": 5825,
+  "raw_candidates": 23300,
+  "unique_candidates": 18246,
+  "examples_with_generated_positive": 3897,
+  "examples_with_negative": 4376,
+  "examples_with_hard_negative": 2872,
+  "pairs": 2448,
+  "pair_source_generated": 2448,
+  "negative_type_hard": 1444,
+  "negative_type_easy": 1004,
+  "gold_errors": 4,
+  "candidate_status_counts": {
+    "success": 12507,
+    "error": 5550,
+    "timeout": 139,
+    "too_many_rows": 50
+  },
+  "generated_positive_coverage": 0.6690128755364807,
+  "generated_only_pair_coverage": 0.42025751072961376,
+  "within_example_unique_rate": 0.7830901287553648,
+  "allow_gold_fallback": false
+}

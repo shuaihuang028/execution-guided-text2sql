@@ -1,0 +1,20 @@
+{
+  "model": "artifacts\\sft_qlora_final\\final_adapter",
+  "examples_generated_this_run": 8,
+  "batch_size": 2,
+  "candidates_per_example": 4,
+  "temperature": 0.7,
+  "top_p": 0.95,
+  "generated_tokens_this_run": 1247,
+  "elapsed_seconds_this_run": 17.70491940015927,
+  "generated_tokens_per_second": 70.43240196782722,
+  "peak_input_tokens": 1955,
+  "peak_vram_mib": 4712.24365234375,
+  "output_examples_total": 8,
+  "output_unique_ids": 8,
+  "output_duplicate_ids": 0,
+  "output_candidates_total": 32,
+  "output_unique_candidates_within_examples": 22,
+  "within_example_unique_rate": 0.6875,
+  "output_generated_tokens_total": 1247
+}

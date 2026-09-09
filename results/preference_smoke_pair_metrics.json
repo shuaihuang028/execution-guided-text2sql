@@ -1,0 +1,20 @@
+{
+  "candidate_examples": 8,
+  "raw_candidates": 32,
+  "unique_candidates": 23,
+  "examples_with_generated_positive": 5,
+  "examples_with_negative": 6,
+  "examples_with_hard_negative": 4,
+  "pairs": 3,
+  "pair_source_generated": 3,
+  "negative_type_hard": 2,
+  "negative_type_easy": 1,
+  "candidate_status_counts": {
+    "success": 15,
+    "error": 8
+  },
+  "generated_positive_coverage": 0.625,
+  "generated_only_pair_coverage": 0.375,
+  "within_example_unique_rate": 0.71875,
+  "allow_gold_fallback": false
+}

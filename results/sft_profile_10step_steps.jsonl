@@ -1,0 +1,10 @@
+{"step": 1, "loss": 0.11061991751194, "learning_rate": 0.00018, "step_seconds": 1.2737479996867478, "tokens_seen": 2354, "tokens_per_second": 1848.0860690876964, "peak_vram_mib": 6584.31005859375}
+{"step": 2, "loss": 0.13149768114089966, "learning_rate": 0.00016, "step_seconds": 0.6099468003958464, "tokens_seen": 4095, "tokens_per_second": 2173.696216167651, "peak_vram_mib": 6584.31005859375}
+{"step": 3, "loss": 0.05422915518283844, "learning_rate": 0.00014, "step_seconds": 0.9203976998105645, "tokens_seen": 6733, "tokens_per_second": 2400.7987495664875, "peak_vram_mib": 7270.59326171875}
+{"step": 4, "loss": 0.4336971938610077, "learning_rate": 0.00012, "step_seconds": 3.822994700167328, "tokens_seen": 11643, "tokens_per_second": 1756.7109397743156, "peak_vram_mib": 11624.18994140625}
+{"step": 5, "loss": 0.2260834127664566, "learning_rate": 0.0001, "step_seconds": 2.398215299937874, "tokens_seen": 16130, "tokens_per_second": 1785.327288201673, "peak_vram_mib": 11624.18994140625}
+{"step": 6, "loss": 0.17049093544483185, "learning_rate": 8e-05, "step_seconds": 0.3827336002141237, "tokens_seen": 16969, "tokens_per_second": 1801.82269401916, "peak_vram_mib": 11624.18994140625}
+{"step": 7, "loss": 0.28910475969314575, "learning_rate": 6e-05, "step_seconds": 0.6449744999408722, "tokens_seen": 18821, "tokens_per_second": 1870.3560158733187, "peak_vram_mib": 11624.18994140625}
+{"step": 8, "loss": 0.16543953120708466, "learning_rate": 4e-05, "step_seconds": 1.0865585999563336, "tokens_seen": 21306, "tokens_per_second": 1910.9290378074284, "peak_vram_mib": 11624.18994140625}
+{"step": 9, "loss": 0.05749386548995972, "learning_rate": 2e-05, "step_seconds": 0.5433926000259817, "tokens_seen": 22856, "tokens_per_second": 1954.6599620081392, "peak_vram_mib": 11624.18994140625}
+{"step": 10, "loss": 0.1126987561583519, "learning_rate": 0.0, "step_seconds": 0.7627290999516845, "tokens_seen": 25043, "tokens_per_second": 2010.5209421417392, "peak_vram_mib": 11624.18994140625}

@@ -1,0 +1,22 @@
+adapter_path: artifacts/sft_qlora_final/final_adapter
+data_path: data/raw/train.jsonl
+database_root: data/raw/bird/train/train_databases
+column_meanings: data/raw/train_column_meaning.json
+manifest: data/processed/train_manifest.jsonl
+candidates_per_example: 4
+batch_size: 4
+max_batch_input_tokens: 10000
+vectorized_candidate_max_prompt_tokens: 3000
+temperature: 0.7
+top_p: 0.95
+max_input_tokens: 8192
+max_new_tokens: 384
+prompt:
+  max_tables: 6
+  max_description_chars: 96
+execution:
+  timeout_seconds: 3.0
+  max_rows: 100000
+  gold_timeout_seconds: 30.0
+  gold_max_rows: 1000000
+allow_gold_fallback: false

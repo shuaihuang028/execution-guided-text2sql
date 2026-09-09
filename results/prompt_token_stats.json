@@ -1,0 +1,11 @@
+{
+  "databases": 69,
+  "examples": 6601,
+  "model": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+  "prompt_tokens": {
+    "max": 28543,
+    "p50": 2497,
+    "p90": 7692,
+    "p95": 28438
+  }
+}

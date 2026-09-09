@@ -1,0 +1,72 @@
+{
+  "config": {
+    "adapter_path": "artifacts\\sft_qlora_final\\final_adapter",
+    "output_dir": "artifacts\\dpo_smoke",
+    "max_seq_length": 6144,
+    "num_train_epochs": 1.0,
+    "max_steps": 1,
+    "batch_size": 1,
+    "gradient_accumulation_steps": 1,
+    "learning_rate": 1e-05,
+    "beta": 0.1,
+    "warmup_ratio": 0.03,
+    "max_grad_norm": 1.0,
+    "validation_fraction": 0.05,
+    "logging_steps": 1,
+    "save_steps": 10,
+    "save_total_limit": 2,
+    "seed": 42
+  },
+  "environment": {
+    "python": "3.11.16",
+    "torch": "2.11.0+cu128",
+    "transformers": "4.57.6",
+    "peft": "0.20.0",
+    "trl": "1.12.0",
+    "bitsandbytes": "0.50.2",
+    "gpu": "NVIDIA GeForce RTX 5070 Ti"
+  },
+  "base_model_path": "models\\Qwen2.5-Coder-1.5B-Instruct",
+  "preference_pairs_input": 3,
+  "preference_pairs_retained": 3,
+  "overlength_pairs_removed": 0,
+  "train_pairs": 2,
+  "validation_pairs": 1,
+  "sequence_tokens": {
+    "min": 1918,
+    "max": 1961,
+    "mean": 1934.6666666666667
+  },
+  "trainable_parameters": 18464768,
+  "total_parameters_loaded": 1562179072,
+  "training_seconds": 2.9233301002532244,
+  "peak_vram_mib": 9687.8486328125,
+  "train_metrics": {
+    "train_runtime": 2.767,
+    "train_samples_per_second": 0.361,
+    "train_steps_per_second": 0.361,
+    "total_flos": 31121940326400.0,
+    "train_loss": 0.6931471824645996,
+    "epoch": 0.5
+  },
+  "validation_metrics": {
+    "eval_loss": 0.6931471824645996,
+    "eval_runtime": 1.4346,
+    "eval_samples_per_second": 0.697,
+    "eval_steps_per_second": 0.697,
+    "eval_entropy": 0.18892838060855865,
+    "eval_num_tokens": 3842.0,
+    "eval_logits/chosen": -3.1542070562189277,
+    "eval_logits/rejected": -3.079362487792969,
+    "eval_mean_token_accuracy": 0.9772727489471436,
+    "eval_rewards/chosen": 0.0,
+    "eval_rewards/rejected": 0.0,
+    "eval_rewards/accuracies": 0.0,
+    "eval_rewards/margins": 0.0,
+    "eval_logps/chosen": -3.8571395874023438,
+    "eval_logps/rejected": -13.233053207397461,
+    "epoch": 0.5
+  },
+  "final_adapter": "artifacts\\dpo_smoke\\final_adapter",
+  "log_path": "artifacts\\dpo_smoke\\train_log.jsonl"
+}
