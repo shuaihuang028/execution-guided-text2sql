@@ -29,6 +29,8 @@ class ProfileConfig:
     lora_dropout: float = 0.05
     gradient_checkpointing: bool = True
     seed: int = 42
+    load_in_4bit: bool = True
+    """QLoRA when true; plain bf16 LoRA over unquantized base weights when false."""
 
 
 def _percentile(values: list[float], probability: float) -> float:
@@ -79,11 +81,15 @@ def run_sft_profile(
     tokenization_seconds = time.perf_counter() - tokenization_started
     sequence_lengths = [len(item["input_ids"]) for item in tokenized]
 
-    quantization = BitsAndBytesConfig(
-        load_in_4bit=True,
-        bnb_4bit_quant_type="nf4",
-        bnb_4bit_use_double_quant=True,
-        bnb_4bit_compute_dtype=torch.bfloat16,
+    quantization = (
+        BitsAndBytesConfig(
+            load_in_4bit=True,
+            bnb_4bit_quant_type="nf4",
+            bnb_4bit_use_double_quant=True,
+            bnb_4bit_compute_dtype=torch.bfloat16,
+        )
+        if config.load_in_4bit
+        else None
     )
     model = AutoModelForCausalLM.from_pretrained(
         config.model_path,
@@ -93,11 +99,19 @@ def run_sft_profile(
         attn_implementation="sdpa",
         local_files_only=True,
     )
-    model = prepare_model_for_kbit_training(
-        model,
-        use_gradient_checkpointing=config.gradient_checkpointing,
-        gradient_checkpointing_kwargs={"use_reentrant": False},
-    )
+    if config.load_in_4bit:
+        model = prepare_model_for_kbit_training(
+            model,
+            use_gradient_checkpointing=config.gradient_checkpointing,
+            gradient_checkpointing_kwargs={"use_reentrant": False},
+        )
+    elif config.gradient_checkpointing:
+        # prepare_model_for_kbit_training also enables checkpointing; for the
+        # unquantized bf16 baseline it must be turned on explicitly.
+        model.gradient_checkpointing_enable(
+            gradient_checkpointing_kwargs={"use_reentrant": False}
+        )
+        model.enable_input_require_grads()
     lora = LoraConfig(
         task_type="CAUSAL_LM",
         r=config.lora_rank,
@@ -194,8 +208,17 @@ def run_sft_profile(
         model.save_pretrained(adapter_output)
         tokenizer.save_pretrained(adapter_output)
 
+    # PEFT reports 4-bit base parameters at twice their count, so the raw tensor
+    # footprint is recorded separately to keep the LoRA/QLoRA rows comparable.
+    base_weight_bytes = sum(
+        parameter.numel() * parameter.element_size()
+        for parameter in model.parameters()
+        if not parameter.requires_grad
+    )
     metrics = {
         "config": asdict(config),
+        "training_mode": "qlora_nf4_4bit" if config.load_in_4bit else "bf16_lora",
+        "base_weight_mib": base_weight_bytes / 2**20,
         "prompt_config": {
             "max_tables": prompts.max_tables,
             "max_description_chars": prompts.builder.max_description_chars,

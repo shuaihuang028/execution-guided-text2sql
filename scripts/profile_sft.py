@@ -32,6 +32,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--gradient-checkpointing", action=argparse.BooleanOptionalAction, default=True
     )
+    parser.add_argument(
+        "--load-in-4bit",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help="QLoRA (default) or --no-load-in-4bit for a bf16 LoRA baseline",
+    )
     return parser.parse_args()
 
 
@@ -65,6 +71,7 @@ def main() -> None:
         lora_rank=args.lora_rank,
         gradient_checkpointing=args.gradient_checkpointing,
         seed=args.seed,
+        load_in_4bit=args.load_in_4bit,
     )
     metrics = run_sft_profile(
         config=config,
