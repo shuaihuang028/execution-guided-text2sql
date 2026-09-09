@@ -1,0 +1,13 @@
+{
+  "model": "artifacts\\dpo_qlora_final\\final_adapter",
+  "examples_generated": 1422,
+  "generated_tokens": 75697,
+  "elapsed_seconds": 850.1180585999973,
+  "generated_tokens_per_second": 89.04292672556602,
+  "peak_input_tokens": 3152,
+  "peak_vram_mib": 8584.92578125,
+  "output_examples_total": 1534,
+  "output_unique_ids": 1534,
+  "output_duplicate_ids": 0,
+  "output_generated_tokens_total": 88124
+}

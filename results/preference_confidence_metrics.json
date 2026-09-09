@@ -1,0 +1,34 @@
+{
+  "candidate_examples": 5825,
+  "examples_with_generated_positive": 3897,
+  "preference_pairs": 2448,
+  "confidence_tier_all_candidate_examples": {
+    "medium_single_scalar": 3678,
+    "high": 2143,
+    "unverifiable_gold": 4
+  },
+  "confidence_tier_examples_with_positive": {
+    "medium_single_scalar": 2630,
+    "high": 1267
+  },
+  "confidence_tier_preference_pairs": {
+    "medium_single_scalar": 1607,
+    "high": 841
+  },
+  "positive_candidates_by_tier": {
+    "medium_single_scalar": 4930,
+    "high": 2183
+  },
+  "empty_result_positive_examples": 0,
+  "high_confidence_pairs": 841,
+  "high_confidence_pair_fraction": 0.34354575163398693,
+  "low_confidence_pair_fraction": 0.6564542483660131,
+  "difficulty_paired": {
+    "unlabeled": 2448
+  },
+  "difficulty_unpaired": {
+    "unlabeled": 3377
+  },
+  "gold_timeout_seconds": 30.0,
+  "gold_max_rows": 1000000
+}

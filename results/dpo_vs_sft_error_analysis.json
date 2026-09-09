@@ -1,0 +1,158 @@
+{
+  "total": 1534,
+  "transitions": {
+    "incorrect_to_incorrect": 950,
+    "correct_to_correct": 417,
+    "incorrect_to_correct": 111,
+    "correct_to_incorrect": 56
+  },
+  "post_sft_categories": {
+    "correct": 528,
+    "wrong_row_set": 327,
+    "wrong_values": 265,
+    "missing_column": 263,
+    "wrong_projection": 57,
+    "syntax_error": 37,
+    "missing_table": 33,
+    "ambiguous_column": 10,
+    "timeout": 5,
+    "gold_execution_error": 3,
+    "aggregation_error": 2,
+    "unsupported_function": 2,
+    "too_many_rows": 1,
+    "other_execution_error": 1
+  },
+  "by_difficulty": {
+    "challenging": {
+      "total": 231,
+      "execution_correct": 31,
+      "categories": {
+        "missing_column": 71,
+        "wrong_row_set": 48,
+        "wrong_values": 32,
+        "correct": 31,
+        "syntax_error": 24,
+        "wrong_projection": 16,
+        "missing_table": 4,
+        "ambiguous_column": 2,
+        "timeout": 1,
+        "gold_execution_error": 1,
+        "other_execution_error": 1
+      }
+    },
+    "moderate": {
+      "total": 443,
+      "execution_correct": 121,
+      "categories": {
+        "correct": 121,
+        "wrong_values": 102,
+        "wrong_row_set": 92,
+        "missing_column": 82,
+        "wrong_projection": 21,
+        "missing_table": 9,
+        "syntax_error": 7,
+        "ambiguous_column": 4,
+        "aggregation_error": 2,
+        "timeout": 2,
+        "gold_execution_error": 1
+      }
+    },
+    "simple": {
+      "total": 860,
+      "execution_correct": 376,
+      "categories": {
+        "correct": 376,
+        "wrong_row_set": 187,
+        "wrong_values": 131,
+        "missing_column": 110,
+        "missing_table": 20,
+        "wrong_projection": 20,
+        "syntax_error": 6,
+        "ambiguous_column": 4,
+        "timeout": 2,
+        "unsupported_function": 2,
+        "too_many_rows": 1,
+        "gold_execution_error": 1
+      }
+    }
+  },
+  "by_database": [
+    {
+      "db_id": "superhero",
+      "total": 129,
+      "pre_correct": 66,
+      "post_correct": 76,
+      "correct_delta": 10
+    },
+    {
+      "db_id": "student_club",
+      "total": 158,
+      "pre_correct": 73,
+      "post_correct": 82,
+      "correct_delta": 9
+    },
+    {
+      "db_id": "thrombosis_prediction",
+      "total": 163,
+      "pre_correct": 28,
+      "post_correct": 37,
+      "correct_delta": 9
+    },
+    {
+      "db_id": "card_games",
+      "total": 191,
+      "pre_correct": 56,
+      "post_correct": 64,
+      "correct_delta": 8
+    },
+    {
+      "db_id": "debit_card_specializing",
+      "total": 64,
+      "pre_correct": 12,
+      "post_correct": 19,
+      "correct_delta": 7
+    },
+    {
+      "db_id": "toxicology",
+      "total": 145,
+      "pre_correct": 30,
+      "post_correct": 35,
+      "correct_delta": 5
+    },
+    {
+      "db_id": "california_schools",
+      "total": 89,
+      "pre_correct": 6,
+      "post_correct": 8,
+      "correct_delta": 2
+    },
+    {
+      "db_id": "european_football_2",
+      "total": 129,
+      "pre_correct": 46,
+      "post_correct": 48,
+      "correct_delta": 2
+    },
+    {
+      "db_id": "formula_1",
+      "total": 174,
+      "pre_correct": 47,
+      "post_correct": 49,
+      "correct_delta": 2
+    },
+    {
+      "db_id": "financial",
+      "total": 106,
+      "pre_correct": 7,
+      "post_correct": 8,
+      "correct_delta": 1
+    },
+    {
+      "db_id": "codebase_community",
+      "total": 186,
+      "pre_correct": 102,
+      "post_correct": 102,
+      "correct_delta": 0
+    }
+  ]
+}
