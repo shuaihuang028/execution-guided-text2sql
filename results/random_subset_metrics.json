@@ -1,0 +1,16 @@
+{
+  "source_pairs": 2448,
+  "sampled_pairs": 841,
+  "seed": 42,
+  "output": "data\\processed\\preference_pairs_random841.jsonl",
+  "source_tier_mix": {
+    "low_numeric_scalar": 1060,
+    "medium_text_scalar": 547,
+    "high": 841
+  },
+  "sampled_tier_mix": {
+    "low_numeric_scalar": 360,
+    "medium_text_scalar": 195,
+    "high": 286
+  }
+}
