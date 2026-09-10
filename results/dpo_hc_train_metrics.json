@@ -1,0 +1,72 @@
+{
+  "config": {
+    "adapter_path": "artifacts\\sft_qlora_final\\final_adapter",
+    "output_dir": "artifacts\\dpo_high_confidence",
+    "max_seq_length": 3072,
+    "num_train_epochs": 1.0,
+    "max_steps": -1,
+    "batch_size": 1,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 2e-05,
+    "beta": 0.05,
+    "warmup_ratio": 0.03,
+    "max_grad_norm": 1.0,
+    "validation_fraction": 0.05,
+    "logging_steps": 1,
+    "save_steps": 100,
+    "save_total_limit": 2,
+    "seed": 42
+  },
+  "environment": {
+    "python": "3.11.16",
+    "torch": "2.11.0+cu128",
+    "transformers": "4.57.6",
+    "peft": "0.20.0",
+    "trl": "1.12.0",
+    "bitsandbytes": "0.50.2",
+    "gpu": "NVIDIA GeForce RTX 5070 Ti"
+  },
+  "base_model_path": "models\\Qwen2.5-Coder-1.5B-Instruct",
+  "preference_pairs_input": 841,
+  "preference_pairs_retained": 735,
+  "overlength_pairs_removed": 106,
+  "train_pairs": 691,
+  "validation_pairs": 44,
+  "sequence_tokens": {
+    "min": 359,
+    "max": 3066,
+    "mean": 1444.5537414965986
+  },
+  "trainable_parameters": 18464768,
+  "total_parameters_loaded": 1562179072,
+  "training_seconds": 2600.7432193000022,
+  "peak_vram_mib": 14147.00439453125,
+  "train_metrics": {
+    "train_runtime": 2600.5922,
+    "train_samples_per_second": 0.266,
+    "train_steps_per_second": 0.033,
+    "total_flos": 1.6187709456027648e+16,
+    "train_loss": 0.6836742580622092,
+    "epoch": 1.0
+  },
+  "validation_metrics": {
+    "eval_loss": 0.6838124394416809,
+    "eval_runtime": 37.2523,
+    "eval_samples_per_second": 1.181,
+    "eval_steps_per_second": 1.181,
+    "eval_entropy": 0.10574952538379213,
+    "eval_num_tokens": 1996491.0,
+    "eval_logits/chosen": -3.4531926977665894,
+    "eval_logits/rejected": -3.419361724864549,
+    "eval_mean_token_accuracy": 0.9697718037800356,
+    "eval_rewards/chosen": -0.0028200747275894337,
+    "eval_rewards/rejected": -0.022159477094646718,
+    "eval_rewards/accuracies": 0.5681818181818182,
+    "eval_rewards/margins": 0.019339402312074195,
+    "eval_logps/chosen": -3.850610516288064,
+    "eval_logps/rejected": -6.52908182144165,
+    "epoch": 1.0
+  },
+  "final_adapter": "artifacts\\dpo_high_confidence\\final_adapter",
+  "log_path": "artifacts\\dpo_high_confidence\\train_log.jsonl"
+}

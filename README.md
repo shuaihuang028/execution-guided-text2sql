@@ -27,12 +27,16 @@ not a base model. All three rows use the same prompt settings (6 tables, column 
 to 96 characters). I checked this by reproducing the recorded input token counts on 60 dev
 examples before running DPO.
 
-Paired comparison with the previous checkpoint:
+Paired comparison on the 1,531 examples where every query could be scored (exact two-sided
+McNemar test):
 
-| Transition | Fixed | Regressed | Net |
-|---|---:|---:|---:|
-| Baseline -> SFT | 241 | 76 | +165 |
-| SFT -> DPO | 111 | 56 | +55 |
+| Transition | Fixed | Regressed | Net | p |
+|---|---:|---:|---:|---:|
+| Baseline -> SFT | 241 | 76 | +165 | 3.8e-21 |
+| SFT -> DPO | 111 | 56 | +55 | 2.5e-05 |
+| Baseline -> DPO | 295 | 75 | +220 | 5.8e-32 |
+
+Both steps are significant at p < 1e-4.
 
 DPO helps at every difficulty level: simple 41.05 -> 43.72, moderate 20.99 -> 27.31,
 challenging 11.69 -> 13.42.
@@ -118,6 +122,34 @@ The model also finds a correct candidate least often on the multi-row examples, 
 would be most trustworthy. (No pair came from an empty gold result.) BIRD train has no
 `difficulty` field, so difficulty can only be compared on dev.
 
+### Does filtering the weak labels help?
+
+Comparing 841 high-confidence pairs against all 2,448 would change both label quality and data
+size at once. To separate the two I also trained on 841 pairs drawn at random from the full set
+(seed 42; the tier mix stays close to the original: 34.0% multi-row, 42.8% numeric). All arms
+start from the same SFT adapter with the same settings (lr 2e-5, beta 0.05, 1 epoch, 3,072-token
+cap).
+
+| Arm | Pairs | Used for training | Local EX | BIRD EX | Executable |
+|---|---:|---:|---:|---:|---:|
+| SFT only | - | - | 30.83% | 34.49% | 69.30% |
+| DPO, all pairs | 2,448 | 2,029 | 34.42% | 38.40% | 76.88% |
+| DPO, high-confidence | 841 | 691 | 31.88% | 35.79% | 72.24% |
+| DPO, random 841 | 841 | 693 | 31.94% | 35.92% | 72.31% |
+
+| Comparison | Delta | b / c | p |
+|---|---:|---:|---:|
+| high-confidence vs random 841 | +0.07 pp | 26 / 27 | 1.000 |
+| all pairs vs high-confidence | -2.55 pp | 86 / 47 | 0.0009 |
+| all pairs vs random 841 | -2.48 pp | 72 / 34 | 0.0003 |
+| SFT vs high-confidence | +1.05 pp | 26 / 42 | 0.068 |
+| SFT vs random 841 | +1.11 pp | 34 / 51 | 0.082 |
+
+At equal size the filtered and random subsets are one example apart (489 vs 490 correct), so
+filtering made no measurable difference. Cutting the data to 841 pairs, either way, cost about
+2.5 points and left both arms no longer clearly better than SFT. If filtering is worth doing, it probably needs new high-confidence pairs to replace the
+ones removed. The reported model uses all pairs.
+
 ## DPO setup
 
 With `DPOTrainer(model=peft_model, ref_model=None)` the reference model is not obvious from the
@@ -197,8 +229,12 @@ validation loss 0.1466 on a fixed 128-example subset; peak 13,078 MiB allocated.
 
 - The BIRD number reimplements the official comparison but does not use the official script.
 - 43.3% of pairs are labeled by single-number matches, and coverage is skewed toward examples
-  with less informative gold results.
+  with less informative gold results. Filtering didn't matter at 2,448 pairs; that may change
+  with more data.
+- The data-size effect is measured at two points only (841 and 2,448 pairs).
 - The DPO sweep was short (20 steps per setting).
+- Wall-clock times from runs at different times on this desktop GPU aren't comparable, so the
+  ablation arms have no speed comparison.
 - `peak_reserved_vram_mib` is inflated by WDDM spill on Windows.
 
 ## Setup
@@ -206,7 +242,7 @@ validation loss 0.1466 on a fixed 128-example subset; peak 13,078 MiB allocated.
 ```bash
 conda env create -f environment.yml
 conda activate text2sql
-python -m pytest          # 75 tests
+python -m pytest          # 96 tests
 python -m ruff check .
 ```
 
@@ -268,6 +304,16 @@ python scripts/compare_official_evaluator.py --data-path data/raw/dev/dev_202511
 
 ```bash
 python scripts/analyze_errors.py --data-path data/raw/dev/dev_20251106.jsonl --baseline results/post_sft_evaluation.jsonl --candidate results/dpo_evaluation.jsonl --summary-output results/dpo_vs_sft_error_analysis.json --details-output results/dpo_vs_sft_error_details.jsonl
+```
+
+Draw the size-matched random control and compare arms with paired McNemar tests:
+
+```bash
+python scripts/sample_preference_subset.py --pairs data/processed/preference_pairs.jsonl --output data/processed/preference_pairs_random841.jsonl --size 841 --seed 42 --signatures results/preference_confidence_signatures.jsonl --metrics-output results/random_subset_metrics.json
+```
+
+```bash
+python scripts/compare_checkpoints.py --evaluation "sft=results/post_sft_evaluation.jsonl" --evaluation "dpo_full=results/dpo_evaluation.jsonl" --evaluation "dpo_high_conf=results/dpo_hc_evaluation.jsonl" --evaluation "dpo_random=results/dpo_rand_evaluation.jsonl" --compare "dpo_high_conf:dpo_random" --compare "dpo_full:dpo_high_conf" --compare "sft:dpo_full" --output results/significance_data_selection.json
 ```
 
 Run the LoRA/QLoRA ablation (drop `--no-load-in-4bit` for the QLoRA arm):

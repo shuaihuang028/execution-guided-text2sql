@@ -1,0 +1,16 @@
+{
+  "total": 1534,
+  "scored": 1531,
+  "execution_correct": 489,
+  "executable": 1106,
+  "execution_accuracy": 0.31877444589308995,
+  "scored_execution_accuracy": 0.3193990855649902,
+  "executable_rate": 0.7224036577400392,
+  "prediction_status_counts": {
+    "error": 422,
+    "success": 1108,
+    "too_many_rows": 2,
+    "timeout": 2
+  },
+  "gold_error_count": 3
+}

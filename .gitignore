@@ -22,3 +22,4 @@ results/train_candidate_labels.jsonl
 results/*.log
 data/processed/preference_pairs.jsonl
 data/processed/preference_pairs_high_confidence.jsonl
+data/processed/preference_pairs_random841.jsonl

@@ -1,0 +1,72 @@
+{
+  "config": {
+    "adapter_path": "artifacts\\sft_qlora_final\\final_adapter",
+    "output_dir": "artifacts\\dpo_random841",
+    "max_seq_length": 3072,
+    "num_train_epochs": 1.0,
+    "max_steps": -1,
+    "batch_size": 1,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 2e-05,
+    "beta": 0.05,
+    "warmup_ratio": 0.03,
+    "max_grad_norm": 1.0,
+    "validation_fraction": 0.05,
+    "logging_steps": 1,
+    "save_steps": 100,
+    "save_total_limit": 2,
+    "seed": 42
+  },
+  "environment": {
+    "python": "3.11.16",
+    "torch": "2.11.0+cu128",
+    "transformers": "4.57.6",
+    "peft": "0.20.0",
+    "trl": "1.12.0",
+    "bitsandbytes": "0.50.2",
+    "gpu": "NVIDIA GeForce RTX 5070 Ti"
+  },
+  "base_model_path": "models\\Qwen2.5-Coder-1.5B-Instruct",
+  "preference_pairs_input": 841,
+  "preference_pairs_retained": 729,
+  "overlength_pairs_removed": 112,
+  "train_pairs": 693,
+  "validation_pairs": 36,
+  "sequence_tokens": {
+    "min": 411,
+    "max": 3066,
+    "mean": 1421.6941015089162
+  },
+  "trainable_parameters": 18464768,
+  "total_parameters_loaded": 1562179072,
+  "training_seconds": 1259.8812006000007,
+  "peak_vram_mib": 14150.2744140625,
+  "train_metrics": {
+    "train_runtime": 1259.7284,
+    "train_samples_per_second": 0.55,
+    "train_steps_per_second": 0.069,
+    "total_flos": 1.600217418995712e+16,
+    "train_loss": 0.682324235466705,
+    "epoch": 1.0
+  },
+  "validation_metrics": {
+    "eval_loss": 0.6758901476860046,
+    "eval_runtime": 19.4713,
+    "eval_samples_per_second": 1.849,
+    "eval_steps_per_second": 1.849,
+    "eval_entropy": 0.13032765365723106,
+    "eval_num_tokens": 1972262.0,
+    "eval_logits/chosen": -3.3714836348201365,
+    "eval_logits/rejected": -3.3501748197169823,
+    "eval_mean_token_accuracy": 0.9644644674327638,
+    "eval_rewards/chosen": 0.001697591926333391,
+    "eval_rewards/rejected": -0.034598306002509266,
+    "eval_rewards/accuracies": 0.7222222222222222,
+    "eval_rewards/margins": 0.03629589768307698,
+    "eval_logps/chosen": -3.863475349214342,
+    "eval_logps/rejected": -7.565125094519721,
+    "epoch": 1.0
+  },
+  "final_adapter": "artifacts\\dpo_random841\\final_adapter",
+  "log_path": "artifacts\\dpo_random841\\train_log.jsonl"
+}

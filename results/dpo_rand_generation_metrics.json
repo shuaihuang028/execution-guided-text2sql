@@ -1,0 +1,13 @@
+{
+  "model": "artifacts\\dpo_random841\\final_adapter",
+  "examples_generated": 1534,
+  "generated_tokens": 83823,
+  "elapsed_seconds": 919.1228121000022,
+  "generated_tokens_per_second": 91.1989115018069,
+  "peak_input_tokens": 3152,
+  "peak_vram_mib": 8584.9248046875,
+  "output_examples_total": 1534,
+  "output_unique_ids": 1534,
+  "output_duplicate_ids": 0,
+  "output_generated_tokens_total": 83823
+}
