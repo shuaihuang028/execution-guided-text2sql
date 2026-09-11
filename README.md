@@ -36,7 +36,9 @@ McNemar test):
 | SFT -> DPO | 111 | 56 | +55 | 2.5e-05 |
 | Baseline -> DPO | 295 | 75 | +220 | 5.8e-32 |
 
-Both steps are significant at p < 1e-4.
+Every run is a single seed. McNemar only accounts for which dev questions were sampled, so it
+says this DPO checkpoint is better than this SFT checkpoint; it does not tell you how much the
++3.6 points would move with a different seed.
 
 DPO helps at every difficulty level: simple 41.05 -> 43.72, moderate 20.99 -> 27.31,
 challenging 11.69 -> 13.42.
@@ -147,7 +149,9 @@ cap).
 
 At equal size the filtered and random subsets are one example apart (489 vs 490 correct), so
 filtering made no measurable difference. Cutting the data to 841 pairs, either way, cost about
-2.5 points and left both arms no longer clearly better than SFT. If filtering is worth doing, it probably needs new high-confidence pairs to replace the
+2.5 points and left both arms no longer clearly better than SFT. With one seed per arm this
+rules out a large benefit from filtering but could miss a small one, and it only covers two data
+sizes. If filtering is worth doing, it probably needs new high-confidence pairs to replace the
 ones removed. The reported model uses all pairs.
 
 ## DPO setup
@@ -227,6 +231,7 @@ validation loss 0.1466 on a fixed 128-example subset; peak 13,078 MiB allocated.
 
 ## Limitations
 
+- All runs are single-seed, including the LoRA/QLoRA comparison and the filtering ablation.
 - The BIRD number reimplements the official comparison but does not use the official script.
 - 43.3% of pairs are labeled by single-number matches, and coverage is skewed toward examples
   with less informative gold results. Filtering didn't matter at 2,448 pairs; that may change
